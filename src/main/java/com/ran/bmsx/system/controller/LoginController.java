@@ -1,8 +1,5 @@
 package com.ran.bmsx.system.controller;
 
-import com.wangfan.endecrypt.utils.EndecryptUtils;
-import com.wf.captcha.utils.CaptchaUtil;
-import com.wf.etp.authz.SubjectUtil;
 import com.ran.bmsx.core.BaseController;
 import com.ran.bmsx.core.ResultMap;
 import com.ran.bmsx.core.utils.DateUtil;
@@ -13,12 +10,14 @@ import com.ran.bmsx.system.model.User;
 import com.ran.bmsx.system.service.LoginRecordService;
 import com.ran.bmsx.system.service.PermissionService;
 import com.ran.bmsx.system.service.UserService;
+import com.wangfan.endecrypt.utils.EndecryptUtils;
+import com.wf.captcha.utils.CaptchaUtil;
+import com.wf.etp.authz.SubjectUtil;
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,7 +41,8 @@ public class LoginController extends BaseController {
 	/**
 	 * 登录
 	 */
-	@PostMapping("/login")
+	//@PostMapping("/login")
+	@RequestMapping(value = "/login")
 	public ResultMap login(String account, String password, String vercode, String verkey, HttpServletRequest request) {
 		if (StringUtil.isBlank(account,password,vercode,verkey)) {
 			return ResultMap.error("请输入完整信息");

@@ -4,8 +4,10 @@ package com.ran.bmsx.system.dao;
 import com.ran.bmsx.system.model.LoginRecord;
 import com.ran.bmsx.system.model.LoginRecordExample;
 import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface LoginRecordMapper {
     int countByExample(LoginRecordExample example);
 

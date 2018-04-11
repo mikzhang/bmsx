@@ -6,6 +6,7 @@
 		<!-- 打印查询语句 -->
 		<setting name="logImpl" value="LOG4J" />
 	</settings>
+
 	<plugins>
 		<!-- 分页插件 -->
 		<plugin interceptor="com.github.pagehelper.PageInterceptor">
@@ -13,4 +14,12 @@
 			<property name="pageSizeZero" value="true" />
 		</plugin>
 	</plugins>
+
+	<mappers>
+		<mapper resource="mapper/system/LoginRecordMapper.xml"/>
+		<mapper resource="mapper/system/PermissionMapper.xml"></mapper>
+		<mapper resource="mapper/system/RoleMapper.xml"></mapper>
+		<mapper resource="mapper/system/RolePermissionMapper.xml"></mapper>
+		<mapper resource="mapper/system/UserMapper.xml"></mapper>
+	</mappers>
 </configuration>

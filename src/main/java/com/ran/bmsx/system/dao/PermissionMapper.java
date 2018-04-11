@@ -4,8 +4,10 @@ package com.ran.bmsx.system.dao;
 import com.ran.bmsx.system.model.Permission;
 import com.ran.bmsx.system.model.PermissionExample;
 import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface PermissionMapper {
     int countByExample(PermissionExample example);
 

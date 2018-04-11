@@ -4,8 +4,10 @@ package com.ran.bmsx.system.dao;
 import com.ran.bmsx.system.model.User;
 import com.ran.bmsx.system.model.UserExample;
 import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface UserMapper {
     int countByExample(UserExample example);
 

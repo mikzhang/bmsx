@@ -4,8 +4,10 @@ package com.ran.bmsx.system.dao;
 import com.ran.bmsx.system.model.Role;
 import com.ran.bmsx.system.model.RoleExample;
 import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface RoleMapper {
     int countByExample(RoleExample example);
 
