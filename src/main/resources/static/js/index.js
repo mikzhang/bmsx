@@ -57,7 +57,7 @@ function load(path) {
 		activeNav(path);
 	}
 	refreshNav = true;
-	$("#main-content").load("views/" + path +".html",function(){
+	$("#main-content").load("templates/" + path +".html",function(){
 		layui.element.render('breadcrumb');
 		layui.form.render('select');
 	});
