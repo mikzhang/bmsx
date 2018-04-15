@@ -156,7 +156,7 @@ CREATE TABLE `sys_user` (
 
 /*Data for the table `sys_user` */
 
-insert  into `sys_user`(`user_id`,`user_account`,`user_password`,`user_nickname`,`mobile_phone`,`sex`,`user_status`,`create_time`,`update_time`,`role_id`,`token`) values ('Erk7B4aH','admin','ba3f6006c8ee8dd080b8d29825dd44a4','管理员','13125062807','女',0,'2017-08-14 14:12:36','2018-02-23 11:01:45','admin','eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHelY1UWgzdSIsImlhdCI6MTUxODYxMDMzNSwiZXhwIjoxNTIxMjAyMzM1fQ.AS8SdYzkF-mOXvn316wCqQiNsHSdnW6Lkcg48pCrsS0'),('GzV5Qh3u','easyweb','59e577fe762108b7d783fe514f2b493f','演示账号','13125062807','男',0,'2018-02-13 21:42:35','2018-02-23 11:13:06','user','eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJFcms3QjRhSCIsImlhdCI6MTUxOTM1NTUyOSwiZXhwIjoxNTIxOTQ3NTI5fQ.BQB4QPAMcH-OZhXZNiZV714AAJmWeS_8YpoC40xQ8LQ');
+insert  into `sys_user`(`user_id`,`user_account`,`user_password`,`user_nickname`,`mobile_phone`,`sex`,`user_status`,`create_time`,`update_time`,`role_id`,`token`) values ('Erk7B4aH','admin','d9892738d09afe06f886cc4dd7296da3','管理员','13125062807','女',0,'2017-08-14 14:12:36','2018-02-23 11:01:45','admin','eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHelY1UWgzdSIsImlhdCI6MTUxODYxMDMzNSwiZXhwIjoxNTIxMjAyMzM1fQ.AS8SdYzkF-mOXvn316wCqQiNsHSdnW6Lkcg48pCrsS0'),('GzV5Qh3u','easyweb','59e577fe762108b7d783fe514f2b493f','演示账号','13125062807','男',0,'2018-02-13 21:42:35','2018-02-23 11:13:06','user','eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJFcms3QjRhSCIsImlhdCI6MTUxOTM1NTUyOSwiZXhwIjoxNTIxOTQ3NTI5fQ.BQB4QPAMcH-OZhXZNiZV714AAJmWeS_8YpoC40xQ8LQ');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

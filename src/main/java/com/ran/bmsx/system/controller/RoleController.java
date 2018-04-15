@@ -1,12 +1,12 @@
 package com.ran.bmsx.system.controller;
 
-import com.wf.etp.authz.annotation.RequiresPermissions;
 import com.ran.bmsx.core.PageResult;
 import com.ran.bmsx.core.ResultMap;
 import com.ran.bmsx.core.exception.BusinessException;
 import com.ran.bmsx.core.exception.ParameterException;
 import com.ran.bmsx.system.model.Role;
 import com.ran.bmsx.system.service.RoleService;
+import com.wf.etp.authz.annotation.RequiresPermissions;
 import java.io.UnsupportedEncodingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

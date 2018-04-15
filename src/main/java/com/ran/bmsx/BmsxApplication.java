@@ -5,6 +5,7 @@ import com.ran.bmsx.core.auth.EtpCache;
 import com.ran.bmsx.core.auth.UserRealm;
 import com.ran.bmsx.core.exception.ExceptionHandler;
 import com.ran.bmsx.core.utils.RedisUtil;
+import com.wf.captcha.servlet.CaptchaServlet;
 import com.wf.etp.authz.ApiInterceptor;
 import com.wf.etp.authz.IEtpCache;
 import com.wf.etp.authz.IUserRealm;
@@ -22,7 +23,6 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.util.ResourceUtils;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -81,9 +81,9 @@ public class BmsxApplication {
 			@Override
 			public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
-				registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+				/*registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
 				registry.addResourceHandler("/static/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/static/");
-				registry.addResourceHandler("/templates/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/templates/");
+				registry.addResourceHandler("/templates/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/templates/");*/
 
 				super.addResourceHandlers(registry);
 			}
@@ -120,8 +120,17 @@ public class BmsxApplication {
 	public ServletRegistrationBean apiServlet() {
 		ServletRegistrationBean bean = new ServletRegistrationBean(dispatcherServlet);
 		//注入上传配置到自己注册的ServletRegistrationBean
-		bean.addUrlMappings("/api/*","/","/static/*","/templates/*","/templates/index.html","/templates/login.html");
+		bean.addUrlMappings("/api/**","/","/static/*","/templates/*","/templates/index.html","/templates/login.html");
 		bean.setName("apiServlet");
+		return bean;
+	}
+
+	@Bean
+	public ServletRegistrationBean captchaServlet() {
+		ServletRegistrationBean bean = new ServletRegistrationBean(new CaptchaServlet());
+		//注入上传配置到自己注册的ServletRegistrationBean
+		bean.addUrlMappings("/image/captcha");
+		bean.setName("captchaServlet");
 		return bean;
 	}
 }

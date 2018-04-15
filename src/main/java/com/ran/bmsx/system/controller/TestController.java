@@ -1,7 +1,7 @@
 package com.ran.bmsx.system.controller;
 
-import com.wf.etp.authz.annotation.RequiresPermissions;
 import com.ran.bmsx.core.ResultMap;
+import com.wf.etp.authz.annotation.RequiresPermissions;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

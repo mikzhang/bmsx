@@ -1,8 +1,5 @@
 package com.ran.bmsx.system.controller;
 
-import com.wf.etp.authz.SubjectUtil;
-import com.wf.etp.authz.annotation.RequiresPermissions;
-import com.wf.etp.authz.annotation.RequiresRoles;
 import com.ran.bmsx.core.PageResult;
 import com.ran.bmsx.core.ResultMap;
 import com.ran.bmsx.core.exception.BusinessException;
@@ -12,6 +9,9 @@ import com.ran.bmsx.system.model.MenuTree;
 import com.ran.bmsx.system.model.Permission;
 import com.ran.bmsx.system.service.AuthService;
 import com.ran.bmsx.system.service.PermissionService;
+import com.wf.etp.authz.SubjectUtil;
+import com.wf.etp.authz.annotation.RequiresPermissions;
+import com.wf.etp.authz.annotation.RequiresRoles;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

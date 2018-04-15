@@ -8,7 +8,7 @@ Q=function(W,D,HTML,hash,view,arg,_arg,i,index,Regex,key,Q){
 	HTML=D.documentElement;
 	Regex=[];
 	key='!';
-	onhashchange=function(){
+	var onhashchange=function(){
 		Q.hash=hash=location.hash.substring(key.length+1);
 
 		arg=hash.split('/');
