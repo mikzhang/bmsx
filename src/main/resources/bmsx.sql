@@ -13,9 +13,9 @@ MySQL - 5.6.34-log : Database - easyweb
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`bms` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+CREATE DATABASE /*!32312*/ IF NOT EXISTS `bms` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 
-USE `easyweb`;
+USE `bms`;
 
 /*Table structure for table `sys_dictionary` */
 
@@ -162,3 +162,27 @@ insert  into `sys_user`(`user_id`,`user_account`,`user_password`,`user_nickname`
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+/*Table structure for table `sys_user` */
+
+DROP TABLE IF EXISTS `sys_user`;
+
+CREATE TABLE `book` (
+  `id` varchar(20) NOT NULL COMMENT '图书ID',
+  `code` varchar(20) NOT NULL COMMENT '图书编号',
+  `name` varchar(32) NOT NULL COMMENT '图书名称',
+  `type` varchar(20) NOT NULL COMMENT '图书类型',
+  `author` varchar(12) DEFAULT NULL COMMENT '作者',
+  `translator` varchar(1) NOT NULL DEFAULT '男' COMMENT '性别',
+  `isbn` int(1) NOT NULL DEFAULT '0' COMMENT '状态，0正常，1冻结',
+  `publisher` datetime NOT NULL COMMENT '注册时间',
+  `edition` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `price` bigint(20) NOT NULL COMMENT '角色ID',
+  `quantity` varchar(200) DEFAULT NULL COMMENT '设备id',
+  `brief_intro` varchar(200) DEFAULT NULL COMMENT '设备id',
+  `pic` varchar(200) DEFAULT NULL COMMENT '设备id',
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `user_account` (`user_account`),
+  KEY `FK_sys_user_role` (`role_id`),
+  CONSTRAINT `FK_sys_user_role` FOREIGN KEY (`role_id`) REFERENCES `sys_role` (`role_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
