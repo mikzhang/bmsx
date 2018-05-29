@@ -21,5 +21,7 @@
 		<mapper resource="mapper/system/RoleMapper.xml"></mapper>
 		<mapper resource="mapper/system/RolePermissionMapper.xml"></mapper>
 		<mapper resource="mapper/system/UserMapper.xml"></mapper>
+
+		<mapper resource="mapper/book/BookInfoMapper.xml"></mapper>
 	</mappers>
 </configuration>

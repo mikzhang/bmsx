@@ -163,26 +163,40 @@ insert  into `sys_user`(`user_id`,`user_account`,`user_password`,`user_nickname`
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-/*Table structure for table `sys_user` */
+/*Table structure for table `book_info` */
 
-DROP TABLE IF EXISTS `sys_user`;
+DROP TABLE IF EXISTS `book_info`;
 
-CREATE TABLE `book` (
+CREATE TABLE `book_info` (
   `id` varchar(20) NOT NULL COMMENT '图书ID',
   `code` varchar(20) NOT NULL COMMENT '图书编号',
-  `name` varchar(32) NOT NULL COMMENT '图书名称',
-  `type` varchar(20) NOT NULL COMMENT '图书类型',
-  `author` varchar(12) DEFAULT NULL COMMENT '作者',
-  `translator` varchar(1) NOT NULL DEFAULT '男' COMMENT '性别',
-  `isbn` int(1) NOT NULL DEFAULT '0' COMMENT '状态，0正常，1冻结',
-  `publisher` datetime NOT NULL COMMENT '注册时间',
-  `edition` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  `price` bigint(20) NOT NULL COMMENT '角色ID',
-  `quantity` varchar(200) DEFAULT NULL COMMENT '设备id',
-  `brief_intro` varchar(200) DEFAULT NULL COMMENT '设备id',
-  `pic` varchar(200) DEFAULT NULL COMMENT '设备id',
-  PRIMARY KEY (`user_id`),
-  UNIQUE KEY `user_account` (`user_account`),
-  KEY `FK_sys_user_role` (`role_id`),
-  CONSTRAINT `FK_sys_user_role` FOREIGN KEY (`role_id`) REFERENCES `sys_role` (`role_id`)
+  `name` varchar(50) NOT NULL COMMENT '图书名称',
+  `type` tinyint(4) NOT NULL COMMENT '图书类型',
+  `author` varchar(50) NOT NULL DEFAULT '' COMMENT '作者',
+  `translator` varchar(50) DEFAULT '' COMMENT '译者',
+  `isbn` varchar(50) NOT NULL DEFAULT '' COMMENT 'ISBN',
+  `publisher` varchar(100) NOT NULL DEFAULT '' COMMENT '出版社',
+  `edition` varchar(50) DEFAULT '' COMMENT '版次',
+  `price` bigint(20) NOT NULL DEFAULT '0' COMMENT '价格',
+  `quantity` int(11) NOT NULL DEFAULT '0' COMMENT '副本数量',
+  `briefIntro` varchar(200) DEFAULT '' COMMENT '简介',
+  `pic` varchar(200) DEFAULT '' COMMENT '封面图片',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `code` (`code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
+
+
+/*Table structure for table `borrow_return` */
+
+DROP TABLE IF EXISTS `borrow_return`;
+
+CREATE TABLE `borrow_return` (
+  `id` varchar(20) NOT NULL COMMENT 'ID',
+  `bookId` varchar(20) NOT NULL COMMENT '图书ID',
+  `bookCode` varchar(20) NOT NULL COMMENT '图书编号',
+  `userId` varchar(20) NOT NULL COMMENT '用户ID',
+  `outDate` datetime NOT NULL COMMENT '借书日期',
+  `returnDate` datetime DEFAULT NULL COMMENT '还书日期',
+  `lostDate` datetime DEFAULT NULL COMMENT '挂失日期',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
